@@ -43,8 +43,10 @@ namespace EnglishDigest_Viewer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 myForm2 = new Form2();
             this.Hide();
+            Form2 myForm2 = new Form2();
+            myForm2.AMCDir = AMCDir;
+            myForm2.date = dateTimePicker1.Value;
             myForm2.ShowDialog();
             this.Show();
         }
