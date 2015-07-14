@@ -40,5 +40,13 @@ namespace EnglishDigest_Viewer
                 break;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 myForm2 = new Form2();
+            this.Hide();
+            myForm2.ShowDialog();
+            this.Show();
+        }
     }
 }
