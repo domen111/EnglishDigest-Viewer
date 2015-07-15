@@ -44,6 +44,24 @@ namespace EnglishDigest_Viewer
                     break;
                 }
             }
+
+            xd.Load(AMCDir + "data\\" + lessonName + ".xml");
+            if (xd.SelectSingleNode("data").SelectNodes("i_Lesn").Count == 0)
+            {
+                Label txt = new Label();
+                txt.Text = "本日無課文內容";
+                txt.Parent = flowLayoutPanel1;
+            }
+            else
+            {
+                XmlNode article = xd.SelectSingleNode("data").SelectSingleNode("i_Lesn");
+
+                //debug
+                Label txt = new Label();
+                txt.Text = article.InnerXml;
+                txt.AutoSize = true;
+                txt.Parent = flowLayoutPanel1;
+            }
         }
         bool checkMonth(string dir)
         {

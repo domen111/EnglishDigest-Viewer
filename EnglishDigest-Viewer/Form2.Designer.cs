@@ -68,9 +68,9 @@
             this.label_lessonName.AutoSize = true;
             this.label_lessonName.Location = new System.Drawing.Point(11, 13);
             this.label_lessonName.Name = "label_lessonName";
-            this.label_lessonName.Size = new System.Drawing.Size(33, 12);
+            this.label_lessonName.Size = new System.Drawing.Size(82, 12);
             this.label_lessonName.TabIndex = 1;
-            this.label_lessonName.Text = "label1";
+            this.label_lessonName.Text = "lesson not found";
             // 
             // Form2
             // 
