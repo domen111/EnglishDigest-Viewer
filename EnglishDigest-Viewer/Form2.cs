@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
+
 namespace EnglishDigest_Viewer
 {
     public partial class Form2 : Form
@@ -54,13 +55,23 @@ namespace EnglishDigest_Viewer
             }
             else
             {
-                XmlNode article = xd.SelectSingleNode("data").SelectSingleNode("i_Lesn");
-
-                //debug
-                Label txt = new Label();
-                txt.Text = article.InnerXml;
-                txt.AutoSize = true;
-                txt.Parent = flowLayoutPanel1;
+                XmlNodeList article = xd.SelectSingleNode("data").SelectSingleNode("i_Lesn").SelectNodes("i_Prt");
+                foreach (XmlNode paragraph in article)
+                {
+                    Label line = new Label();
+                    line.AutoSize = false;
+                    line.Width = 2000;
+                    line.Height = 14;
+                    line.Parent = flowLayoutPanel1;
+                    foreach (XmlNode sentence in paragraph.SelectSingleNode("i_Stncs").SelectNodes("i_Stnc"))
+                    {
+                        Label txt = new Label();
+                        txt.Text = sentence.SelectSingleNode("i_Eng").InnerText;
+                        txt.AutoSize = true;
+                        txt.Font = new System.Drawing.Font("Calibri", 14);
+                        txt.Parent = flowLayoutPanel1;
+                    }
+                }
             }
         }
         bool checkMonth(string dir)
